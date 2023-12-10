@@ -1,7 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Collections;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 var cardIdRegex = new Regex(@"^Card\s+(\d+):.*$");
 var input = File.ReadAllLines("input.txt");
@@ -12,19 +9,6 @@ var output2 = ScratchAll(scratchCards).Count();
 
 Console.WriteLine(output1);
 Console.WriteLine($"{output2}");
-
-// foreach (var scratchCard in input)
-// {
-//     var gameInput = scratchCard.Split(':');
-//     var numbers = gameInput[1].Trim().Split('|');
-//     var winningNumbers = numbers[0].Trim().Split(' ').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
-//     var ownNumbers = numbers[1].Trim().Split(' ').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
-//     var numberOfMatches = ownNumbers.Count(x => winningNumbers.Contains(x));
-//
-//     sum += numberOfMatches > 0 ? 1 << numberOfMatches - 1 : 0;
-// }
-//
-// Console.WriteLine(sum);
 
 static IEnumerable<ScratchCard> ScratchAll(ScratchCard[] cards)
 {
